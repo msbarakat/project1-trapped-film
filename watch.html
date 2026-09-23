@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<!-- Included for consistency across pages -->
 <div id="flashlight-overlay"></div>
 
 <nav class="nav">
@@ -29,11 +30,19 @@
 
   <div class="tape-frame">
     <div class="rec-indicator"><span class="rec-dot"></span> REC</div>
+
+    <!-- preload="metadata": only fetch the video's length/dimensions up front,
+         not the full ~24MB file, until someone actually presses play.
+         poster: still image shown before playback starts.
+         The text/link inside <video> is a fallback that only displays if the
+         browser can't play MP4. -->
     <video controls preload="metadata" poster="assets/poster.jpg">
       <source src="assets/trapped.mp4" type="video/mp4">
       Your browser doesn't support embedded video. You can
       <a href="assets/trapped.mp4">download the file</a> instead.
     </video>
+
+    <!-- Decorative scanline texture, layered on top of the video via CSS -->
     <div class="tape-overlay"></div>
   </div>
 
