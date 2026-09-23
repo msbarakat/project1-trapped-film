@@ -4,15 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trapped — Case File</title>
+
+<!-- Google Fonts: Courier Prime (typewriter body text) + Special Elite (stamp-style display font) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Empty here since Home has no flashlight-toggle button, but it's included
+     on every page for consistency. -->
 <div id="flashlight-overlay"></div>
 
+<!-- Site navigation. class="active" would mark whichever link matches the 
+     current page, but Home has no matching nav item (linked via the wordmark),
+    so nothing is marked here. -->
 <nav class="nav">
   <div class="wrap">
     <a class="wordmark" href="index.html">TRAPPED &mdash; CASE FILE</a>
@@ -25,17 +33,20 @@
 
 <main class="wrap">
 
+  <!-- The "missing person" notice -->
   <div class="notice">
     <h1 class="notice-head">MISSING</h1>
     <p class="notice-sub">Last seen on campus after hours</p>
 
     <div class="notice-body">
+      <!-- Subject photo, styled as a pinned polaroid via the .polaroid class in style.css -->
       <figure class="polaroid">
         <img src="assets/poster.jpg" alt="A student standing at a locked door, back to camera, campus safety notices on the wall around her.">
         <figcaption>subject, last known photograph</figcaption>
       </figure>
 
       <div>
+        <!-- A description list (term + definition pairs) -->
         <dl class="notice-facts">
           <dt>Last seen</dt>
           <dd>Academic building, film lab corridor</dd>
@@ -55,6 +66,7 @@
     </div>
   </div>
 
+  <!-- Evidence thumbnails: plain links into the Film page. -->
   <p class="section-label">EVIDENCE PHOTOGRAPHS &middot; CLICK TO REVIEW THE FULL CASE FILE</p>
   <div class="thumb-grid">
     <a class="thumb" href="film.html">
@@ -83,6 +95,7 @@
   <div class="wrap">Case remains open. This file will be updated as more evidence surfaces.</div>
 </footer>
 
+<!-- defer: runs after the HTML has finished loading, so it can look for elements on the page -->
 <script src="script.js" defer></script>
 
 </body>
