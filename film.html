@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Film — Trapped Case File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="flashlight-overlay"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">TRAPPED &mdash; CASE FILE</a>
+    <ul>
+      <li><a href="watch.html">Watch</a></li>
+      <li><a href="film.html" class="active">The Film</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <p class="file-meta">EVIDENCE BOARD &middot; FILE NO. 004 &middot; HANDLE WITH CARE</p>
+  <h2 class="board-heading">Everything recovered from the scene</h2>
+  <p class="flashlight-note">It's dark in here &mdash; move your cursor to look around. <button class="flashlight-toggle" data-flashlight-toggle type="button" aria-pressed="true">&#10005; Put the flashlight away</button></p>
+
+  <div class="evidence-grid">
+    <figure class="evidence-item" data-evidence>
+      <div class="polaroid">
+        <img src="assets/still-exit-sign.jpg" alt="Two students in an empty film-lab corridor, a glowing red EDIT sign overhead.">
+        <figcaption>corridor</figcaption>
+      </div>
+    </figure>
+    <figure class="evidence-item" data-evidence>
+      <div class="polaroid">
+        <img src="assets/still-hallway.jpg" alt="A student facing a locked door, fire-safety signage on the wall.">
+        <figcaption>west door</figcaption>
+      </div>
+    </figure>
+    <figure class="evidence-item" data-evidence>
+      <div class="polaroid">
+        <img src="assets/still-bench.jpg" alt="An empty lounge, lights still on, no one left inside.">
+        <figcaption>lounge &middot; unoccupied</figcaption>
+      </div>
+    </figure>
+  </div>
+
+  <div class="note-card">
+    <h3>Investigator's note &mdash; 1 of 2</h3>
+    <p>Every student on this campus has had the late-night version of this story:
+    the long walk back through a building that looks unfamiliar with the lights
+    half off, the moment you can't remember if a door locks automatically behind
+    you. What we recovered suggests the subject noticed
+    <span class="redacted">something in the corridor</span> well before the
+    last recording begins.</p>
+  </div>
+
+  <div class="note-card">
+    <h3>Investigator's note &mdash; 2 of 2</h3>
+    <p>This isn't a case about
+    <span class="redacted">a monster, or an intruder</span>.
+    It's a case about a very ordinary building that started to feel like it
+    was paying attention to someone. That distinction matters for whoever
+    reviews this file next.</p>
+  </div>
+
+  <div class="credits-strip">
+    <ul class="roster">
+      <li>Dina</li>
+      <li>Irma</li>
+      <li>Mariam Alameri</li>
+    </ul>
+  </div>
+
+  <p class="section-label" style="margin-top:2.5rem;"><a class="btn-stamp" href="watch.html">&#9654; Play the last recording</a></p>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" type="button">&#10005; close</button>
+  <img src="" alt="">
+</div>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>

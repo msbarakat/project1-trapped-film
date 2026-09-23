@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Last Recording — Trapped Case File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="flashlight-overlay"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">TRAPPED &mdash; CASE FILE</a>
+    <ul>
+      <li><a href="watch.html" class="active">Watch</a></li>
+      <li><a href="film.html">The Film</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <p class="file-meta">RECOVERED FOOTAGE &middot; FILE NO. 004 &middot; LAST RECORDING ON DEVICE</p>
+
+  <div class="tape-frame">
+    <div class="rec-indicator"><span class="rec-dot"></span> REC</div>
+    <video controls preload="metadata" poster="assets/poster.jpg">
+      <source src="assets/trapped.mp4" type="video/mp4">
+      Your browser doesn't support embedded video. You can
+      <a href="assets/trapped.mp4">download the file</a> instead.
+    </video>
+    <div class="tape-overlay"></div>
+  </div>
+
+  <div class="player-meta">
+    <span>Trapped &mdash; recovered recording (1:31)</span>
+    <span><a href="assets/trapped.mp4" download>Download original file</a></span>
+  </div>
+
+  <p class="watch-note">This is the only recording found on the device. Investigators
+  recommend watching with sound on &mdash; several details on the audio track are
+  easy to miss otherwise.</p>
+
+</main>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
