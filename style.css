@@ -1,17 +1,18 @@
+/* Colors, fonts, and other values reused across the site. */
 :root {
-  --bg: #131110;
-  --paper: #e7e0cb;
-  --paper-card: #ded3b3;
-  --ink: #241f18;
-  --ink-faded: #6b6151;
-  --text: #d8d0bd;
-  --text-faded: #8a8172;
-  --redact: #0c0b09;
-  --stamp: #9c3b2c;
-  --rule: #b7a97e;
-  --rule-dark: #3a352c;
-  --serif-type: "Courier Prime", "Courier New", monospace;
-  --stamp-type: "Special Elite", "Courier Prime", monospace;
+  --bg: #131110;              /* page background */
+  --paper: #e7e0cb;           /* notice/polaroids */
+  --paper-card: #ded3b3;      /* note cards */
+  --ink: #241f18;             /* dark text on paper-colored elements */
+  --ink-faded: #6b6151;       /* muted text on paper */
+  --text: #d8d0bd;            /* light text on dark background */
+  --text-faded: #8a8172;      /* muted text on the dark background */
+  --redact: #0c0b09;          /* redacted-text bars */
+  --stamp: #9c3b2c;           /* stamps and links */
+  --rule: #b7a97e;            /* dividing lines on paper-colored elements */
+  --rule-dark: #3a352c;       /* dividing lines on dark background */
+  --serif-type: "Courier Prime", "Courier New", monospace;   /* body/typewriter font */
+  --stamp-type: "Special Elite", "Courier Prime", monospace; /* stamp/display font */
 }
 
 * { box-sizing: border-box; }
@@ -19,7 +20,7 @@
 body {
   margin: 0;
   background-color: var(--bg);
-  background-image: url("assets/grain.png");
+  background-image: url("assets/grain.png"); /* subtle film-grain texture, tiled */
   background-repeat: repeat;
   color: var(--text);
   font-family: var(--serif-type);
@@ -28,11 +29,10 @@ body {
 }
 
 a { color: inherit; }
-a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
 
 .wrap { max-width: 980px; margin: 0 auto; padding: 0 1.5rem; }
 
-/* ---------- nav ---------- */
+/* ==================== nav ==================== */
 
 .nav {
   border-bottom: 2px solid var(--rule-dark);
@@ -40,6 +40,8 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   margin-bottom: 2.5rem;
 }
 .nav .wrap { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
+
+/* The wordmark doubles as the link back to Home */
 .wordmark {
   font-family: var(--stamp-type);
   font-size: 1.2rem;
@@ -50,8 +52,10 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
 .nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; font-size: 0.85rem; }
 .nav a { text-decoration: none; color: var(--text-faded); text-transform: uppercase; letter-spacing: 0.04em; }
 .nav a:hover { color: var(--text); }
+/* .active is added in the HTML on whichever nav link matches the current page */
 .nav a.active { color: var(--stamp); border-bottom: 1px solid var(--stamp); }
 
+/* The button that switches the flashlight on/off (Film page only) */
 .flashlight-toggle {
   font-family: var(--serif-type);
   font-size: 0.8rem;
@@ -74,7 +78,7 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   flex-wrap: wrap;
 }
 
-/* ---------- stamps / labels ---------- */
+/* ==================== small labels (file numbers, section headers) ==================== */
 
 .file-meta {
   font-size: 0.8rem;
@@ -83,7 +87,7 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   margin: 0 0 1.5rem;
 }
 
-/* ---------- home: missing notice ---------- */
+/* ==================== home: "missing" notice ==================== */
 
 .notice {
   background: var(--paper);
@@ -92,6 +96,7 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   margin-bottom: 3rem;
   position: relative;
 }
+/* Decorative inset dashed border */
 .notice::before {
   content: "";
   position: absolute; inset: 8px;
@@ -102,6 +107,7 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
 .notice-head {
   text-align: center;
   font-family: var(--stamp-type);
+  /* clamp(min, preferred, max): the heading scales with viewport width */
   font-size: clamp(2.6rem, 9vw, 4.2rem);
   letter-spacing: 0.12em;
   color: var(--ink);
@@ -116,6 +122,7 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   margin: 0 0 2rem;
 }
 
+/* Two-column layout: fixed-width photo column, flexible facts column */
 .notice-body {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -123,14 +130,16 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   align-items: start;
 }
 
+/* Shared "physical photo" look, reused for the notice photo, the home thumbnails, and the evidence board photos */
 .polaroid {
   background: var(--paper);
   border: 1px solid var(--ink);
   padding: 10px 10px 34px;
   box-shadow: 3px 4px 0 rgba(0,0,0,0.35);
-  transform: rotate(-2.5deg);
+  transform: rotate(-2.5deg); /* slight tilt so it looks pinned/dropped, not perfectly aligned */
   position: relative;
 }
+/* Filter fades the photo slightly toward grayscale */
 .polaroid img { width: 100%; display: block; filter: grayscale(0.5) contrast(1.05) sepia(0.15) brightness(0.92); }
 .polaroid figcaption, .note-card h3 {
   font-family: var(--stamp-type);
@@ -174,7 +183,7 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
 }
 .btn-stamp:hover { background: var(--ink); }
 
-/* ---------- home: evidence thumbnails ---------- */
+/* ==================== home: evidence thumbnails ==================== */
 
 .section-label {
   font-family: var(--stamp-type);
@@ -189,11 +198,12 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
 
 .thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 3rem; }
 .thumb { text-decoration: none; color: var(--text); display: block; }
+/* Each thumbnail tilted a different way so the row looks scattered */
 .thumb .polaroid { transform: rotate(1.5deg); }
 .thumb:nth-child(2) .polaroid { transform: rotate(-1.5deg); }
 .thumb:nth-child(3) .polaroid { transform: rotate(2deg); }
 
-/* ---------- evidence board (film page) ---------- */
+/* ==================== evidence board (film page) ==================== */
 
 .board-heading {
   font-family: var(--stamp-type);
@@ -211,7 +221,10 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
 }
 
 .evidence-item { position: relative; }
+/* zoom-in cursor to show that the photos are clickable */
 .evidence-item .polaroid { cursor: zoom-in; width: 100%; }
+/* :nth-child(3n+1/2/3) cycles the tilt angle across every row of 3, so a
+   longer evidence grid would keep alternating rather than repeating in blocks */
 .evidence-item:nth-child(3n+1) .polaroid { transform: rotate(-2deg); }
 .evidence-item:nth-child(3n+2) .polaroid { transform: rotate(1.5deg); }
 .evidence-item:nth-child(3n+3) .polaroid { transform: rotate(-1deg); }
@@ -232,6 +245,9 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   margin: 0 0 0.6rem;
 }
 
+/* The redaction effect: text color and background are the same near-black, 
+   Hovering removes the background and restores the text color, "revealing" it. 
+   No JavaScript involved. */
 .redacted {
   background: var(--redact);
   color: var(--redact);
@@ -249,8 +265,10 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
 .roster { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; }
 .roster li { font-size: 0.9rem; padding: 0.3rem 0; color: var(--text); }
 
-/* ---------- lightbox ---------- */
+/* ==================== lightbox ==================== */
 
+/* Hidden by default, script.js adds the .open class when an evidence photo is clicked, 
+   which switches this to display: flex and centers whatever image was loaded into it */
 .lightbox {
   position: fixed; inset: 0;
   background: rgba(5, 4, 3, 0.94);
@@ -272,16 +290,19 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   font-size: 0.85rem;
 }
 
-/* ---------- watch page: the last recording ---------- */
+/* ==================== watch page: the last recording ==================== */
 
 .tape-frame {
   border: 6px solid var(--rule-dark);
   background: #0c0c0a;
   margin-bottom: 1rem;
-  position: relative;
+  position: relative; /* anchors the absolutely-positioned REC dot and scanline overlay */
 }
 .tape-frame video { width: 100%; max-height: 78vh; display: block; margin: 0 auto; }
 
+/* Faint horizontal lines repeated every 3px to fake an old-tape scanline
+   texture. pointer-events: none so it never blocks clicks on the video
+   controls underneath it. */
 .tape-overlay {
   position: absolute; inset: 0;
   pointer-events: none;
@@ -302,6 +323,7 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
   pointer-events: none;
 }
 .rec-dot { width: 8px; height: 8px; border-radius: 50%; background: #c93c3c; animation: recblink 1.2s infinite; }
+/* Blink pattern: solid, with two quick dips in opacity per cycle */
 @keyframes recblink { 0%, 45% { opacity: 1; } 50%, 95% { opacity: 0.15; } 100% { opacity: 1; } }
 
 .player-meta {
@@ -312,20 +334,24 @@ a:focus-visible { outline: 2px dashed var(--stamp); outline-offset: 3px; }
 }
 .watch-note { max-width: 60ch; margin-bottom: 3rem; color: var(--text); }
 
-/* ---------- flashlight overlay (Film page only) ---------- */
+/* ==================== flashlight overlay (Film page only) ==================== */
 
+/* A radial gradient centered on --mx/--my: transparent near the middle, 
+   fading to near-opaque black by the edge of the circle. script.js updates 
+   --mx/--my on every mousemove, which is what moves the "light." Hidden by 
+   default; only shown once body.flashlight-on is added. */
 #flashlight-overlay {
   position: fixed; inset: 0;
-  pointer-events: none;
+  pointer-events: none; /* never blocks clicks on the page underneath it */
   z-index: 400;
   display: none;
   background: radial-gradient(circle 190px at var(--mx, 50%) var(--my, 50%),
     transparent 0%, transparent 55%, rgba(6,5,4,0.97) 100%);
 }
 body.flashlight-on #flashlight-overlay { display: block; }
-body.flashlight-on { cursor: none; }
+body.flashlight-on { cursor: none; } /* hide the normal cursor so the light circle reads as the cursor */
 
-/* ---------- footer ---------- */
+/* ==================== footer ==================== */
 
 footer.site-footer {
   border-top: 1px dashed var(--rule-dark);
@@ -334,10 +360,3 @@ footer.site-footer {
   color: var(--text-faded);
 }
 
-/* ---------- responsive ---------- */
-
-@media (max-width: 720px) {
-  .notice-body { grid-template-columns: 1fr; }
-  .thumb-grid { grid-template-columns: 1fr 1fr; }
-  .evidence-grid { grid-template-columns: 1fr 1fr; }
-}
