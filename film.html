@@ -11,6 +11,8 @@
 </head>
 <body>
 
+<!-- This is the only page where the flashlight overlay used.
+     script.js switches it on by default when this page loads. -->
 <div id="flashlight-overlay"></div>
 
 <nav class="nav">
@@ -27,8 +29,16 @@
 
   <p class="file-meta">EVIDENCE BOARD &middot; FILE NO. 004 &middot; HANDLE WITH CARE</p>
   <h2 class="board-heading">Everything recovered from the scene</h2>
+
+  <!-- data-flashlight-toggle is a custom data attribute, so script.js can 
+       find this exact button (document.querySelector ("[data-flashlight-toggle]")) 
+       aria-pressed tells screen readers whether the flashlight is currently on and 
+       script.js keeps it in sync on every click. -->
   <p class="flashlight-note">It's dark in here &mdash; move your cursor to look around. <button class="flashlight-toggle" data-flashlight-toggle type="button" aria-pressed="true">&#10005; Put the flashlight away</button></p>
 
+  <!-- Each figure is one piece of "evidence." data-evidence marks it as
+       something script.js's lightbox should attach a click handler to so
+       clicking any of these opens the #lightbox further down the page. -->
   <div class="evidence-grid">
     <figure class="evidence-item" data-evidence>
       <div class="polaroid">
@@ -50,6 +60,9 @@
     </figure>
   </div>
 
+  <!-- Investigator's notes. The redacted phrases are text in a <span class="redacted">
+       style.css sets their text color to match their own background so they're present 
+       but unreadable, then reveals them on :hover.  -->
   <div class="note-card">
     <h3>Investigator's note &mdash; 1 of 2</h3>
     <p>Every student on this campus has had the late-night version of this story:
@@ -81,6 +94,10 @@
 
 </main>
 
+<!-- The lightbox: an overlay for all three evidence photos, empty/hidden 
+     by default (no src, and .lightbox has display:none in CSS until JS adds 
+     the .open class); script.js fills in the src/alt of the <img> when a 
+     photo is clicked. -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" type="button">&#10005; close</button>
   <img src="" alt="">
